@@ -13,6 +13,8 @@
 
   <div class="container">
 
+    <!-- Jumbotron -->
+
     <div class="jumbotron text-center">
 
       <h1>Mission to Mars</h1>
@@ -26,7 +28,8 @@
     <div class="container">
 
       <h3>Latest Mars News</h3>
-      <h6>{{ mars_info.news_title }}</h6>
+      <hr>
+      <strong><p>{{ mars_info.news_title }}</p></strong>
       <p>{{ mars_info.news_paragraph}}</p>
 
     </div>
@@ -35,88 +38,94 @@
 
       <div class="row">
 
-          <!-- Left Image-->
+        <!-- Left Part -->
 
           <div class="col-lg-8 col-md-8 col-sm-12">
 
-              <h3>Featured Mars Image</h3>
+            <h3 style = "text-align: center">Featured Mars Image</h3>
+            <hr>
 
-              <img src="{{ mars_info.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
+            <img src="{{ mars_info.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
 
           </div>
 
-          <!-- Weather Card -->
+        <!-- Right Part -->
 
           <div class="col-lg-4 col-md-4 col-sm-12">
 
-              <div class="card" style="width: 18rem;">
+            <!-- Weather Card -->
 
-                  <div class="card-body text-white bg-dark">
+            <div class="card" style="width: 35rem;">
 
-                      <h6 class="card-title">Current Weather on Mars</h6>
-                      <p class="card-text">{{ mars_info.weather_tweet }}</p>
+              <div class="card-body text-white bg-dark">
 
-                  </div>
-
-              </div>
-
-              <!-- Table -->
-
-              <br>
-
-              <h3>Mars Facts</h3>
-
-              <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
-
-                  {{ mars_info.mars_facts|safe}}
+                <h3 style = "text-align: center" class="card-title">Current Weather on Mars</h3>
+                <hr>
+                <p class="card-text">{{ mars_info.weather_tweet }}</p>
 
               </div>
 
-          </div> <!-- col4 -->
+            </div>
 
-      </div><!-- Row -->
+            <!-- Table -->
 
-  </div><!-- Container -->
+            <h3 style = "text-align: center">Mars Facts</h3>
+            <hr>
+            <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
 
-  <!-- Cards -->
+              {{ mars_info.mars_facts|safe}}
 
-  <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
+          </div>
 
-  <div class="card-deck">
+        </div> 
+
+      </div>
+
+    </div>
+
+    <!-- Cards -->
+
+
+    <div class = "container-fluid">
+
+      <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
 
       <hr>
 
       <div class="col-md-12">
 
-          <div class="row">
+        <div class = "row">
 
-              {% for item in mars_info.hemisphere_image_urls %}
+          {% for item in mars_info.hemisphere_image_urls %}
 
-              <div class="col-md-6">
+            <div class="col-md-6">
 
-                  <div class="card text-white bg-dark" style="margin: 30px;">
+              <div class="card" style="width: 18rem;">
 
-                      <img class="card-img-top" src="{{ item.img_url }}" />
+                <img class="card-img-top" src="{{ item.img_url }}" alt = "Card Mars img">
 
-                      <div class="card-body">
+                <div class="card-body">
 
-                          <p class="card-text">{{ item.title }}</p>
+                  <strong><p class="card-text" style = "text-align: center">{{ item.title }}</p></strong>
 
-                      </div>
-
-                  </div>
+                </div>
 
               </div>
 
-              {% endfor %}
+            </div>
 
-          </div>
+          {% endfor %}
+
+        </div>
 
       </div>
 
-  </div><!-- Close main container -->
+    </div>
+
+  </div>=
 
   <!-- Bootstrap JS -->
+  
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
