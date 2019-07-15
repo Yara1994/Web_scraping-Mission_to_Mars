@@ -33,13 +33,13 @@ def scrape():
 
     # Run scrapped functions
     
-    mars_info = mongo.db.mars_info
     mars_data = scrape_mars.mars_news()
     mars_data = scrape_mars.mars_image()
     mars_data = scrape_mars.mars_facts()
     mars_data = scrape_mars.mars_weather()
     mars_data = scrape_mars.mars_hemispheres()
-    mars_info.update({}, mars_data, upsert=True)
+    
+    mongo.db.mars_info.update({}, mars_data, upsert=True)
 
     return redirect("/", code=302)
 

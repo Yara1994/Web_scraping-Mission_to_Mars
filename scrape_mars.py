@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from splinter import Browser
 import pandas as pd
 import requests
+import time
 
 
 
@@ -20,8 +21,6 @@ def init_browser():
 
 mars_info = {}
 
-
-
 # NASA MARS NEWS
 
 def mars_news():
@@ -34,6 +33,8 @@ def mars_news():
 
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
+
+    time.sleep(3)
 
     # Parse HTML with Beautiful Soup
 
@@ -53,6 +54,8 @@ def mars_news():
     # Close the browser after scraping
 
     browser.quit()
+
+    # Return results
 
     return mars_info
 
@@ -75,6 +78,8 @@ def mars_image():
 
     full_image_elem = browser.find_by_id("full_image")
     full_image_elem.click()
+
+    time.sleep(3)
 
     # Have to click on "more info" button
 
@@ -105,6 +110,8 @@ def mars_image():
     # Close the browser after scraping
 
     browser.quit()
+
+    # Return results
 
     return mars_info
 
@@ -142,7 +149,11 @@ def mars_weather():
 
     mars_info['weather_tweet'] = mars_weather
 
+    # Close the browser after scraping
+
     browser.quit()
+
+    # Return results
 
     return mars_info
 
@@ -184,7 +195,11 @@ def mars_facts():
 
     mars_info['mars_facts'] = data
 
+    # Close the browser after scraping
+
     browser.quit()
+
+    # Return results
 
     return mars_info
 
@@ -255,7 +270,11 @@ def mars_hemispheres():
 
     mars_info["hemisphere_image_urls"] = hemisphere_image_urls
 
+    # Close the browser after scraping
+
     browser.quit()
+
+    # Return results
 
     return mars_info
 
